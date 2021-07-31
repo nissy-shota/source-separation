@@ -5,6 +5,15 @@
 B3への共有も兼ねて．．． 
 
 ## nussl
+nusslを通じて，source separationを学ぶ．  
+
+why nussl   
+nusslがいいよって話が書いてある．  
+
+nussl  
+https://github.com/nussl/nussl  
+document  
+https://nussl.github.io/docs/  
 
 ### nussl.AudioSignal()   
 main container for all things.  
