@@ -102,6 +102,46 @@ maskを使って対象の音源を取り出すこともできるが，maskを反
 
 maskを推定した後，混合音信号にてきおうして，推定ソースのmagnitude spectrogramをオーディオに戻して聞けるようにする必用がある．位相を理解する必用がある．
 
+##　Phase
+音源分離は，より良いmaskを推定することに主眼が置かれることが多いが，   
+位相も重要な概念である．  
+Phase - A Quick Primer  
+[https://scrapbox.io/files/60fc28b030d952002232e0a6.gif]  
+
+位相はφで表され，負の値を取るときは，遅れを正の値を取るときは進んでいることを表す．  
+
+Why We Don’t Model Phase  
+  
+[https://scrapbox.io/files/60fc2ae691ff0c001c87490c.gif]  
+
+隣り合うタイムステップで，時間間隔が同じだとしても，  
+高周波成分と低周波成分によって位相の折返しは変わってしまう．  
+
+人間が位相を正確に認識するとは限らないので，source separationの分野で，magnitudeと同程度にモデリングすることは少ない．  
+位相推定手法をざっくりと  
+	The Easy Way  
+		混合物から位相をコピーする方法．そこそこうまく行くらしい．  
+		maskとspectrogramのアダマール積で，source estimationしたときと同様に，位相成分を掛け算するだけ．  
+	The Hard Way  
+		Phase Estimation  
+			Griffin-Lim  
+				STFTと逆STFTを繰り返し行うことで，spectrogramの再構成を行う  
+			modelのend-to-endに入出力を波形で行うことができる．  
+
+
+Evaluation  
+	source separationの評価は難しい問題であり，客観的と主観的両方の視点から行われる．  
+		客観的な手法では estimate sourceとgrandtruthの間で比較を行う計算をする．  
+		主観的な評価は，人間が点数をつける．  
+
+真の値は，干渉，ノイズ，誤差を付け加えて構成されていると考えられている．  
+Source-to-Artifact Ratio (SAR)  
+Source-to-Interference Ratio (SIR)  
+Source-to-Distortion Ratio (SDR)  
+Signal-to-Noise Ratio (SNR)  
+
+同じSDRでも実際聞いてみると，質が違っていた．．．  
+
 ## nussl
 nusslを通じて，source separationを学ぶ．  
 
