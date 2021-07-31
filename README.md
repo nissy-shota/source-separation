@@ -4,6 +4,8 @@
 ゴリゴリDeepLやGoogle translateを使用しております．．．  
 B3への共有も兼ねて．．．  
 
+以下はscrapboxから移植したので，結構見づらいので，おいおい整形します．
+
 ## BASICS OF SOURCE SEPARATION  
 
 ### Representing Audio  
